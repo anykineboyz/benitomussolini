@@ -146,7 +146,7 @@ def webhook():
 
         italian_rage_messages = [
 
-            "NIKO!!! ZITTO!!! 🤌",
+            "NIKO!!! ZITTO!!!",
 
             "SILENZIO, NIKO!!!",
 
@@ -154,7 +154,7 @@ def webhook():
 
             "BASTA!!! NIKO, SILENZIO!!!",
 
-            "NIKO!!! PER FAVORE, ZITTO!!! 😭",
+            "NIKO!!! PER FAVORE, ZITTO!!!",
 
             "SILENZIO!!! NON PARLARE PIÙ!!!",
 
@@ -164,7 +164,7 @@ def webhook():
 
             "NIKO!!! CHIUDI LA BOCCA E FAI SILENZIO!!!",
 
-            "ZITTO!!! ZITTO!!! ZITTO!!! 😭",
+            "ZITTO!!! ZITTO!!! ZITTO!!!",
 
             "NIKO, PER L'AMOR DI DIO, SILENZIO!!!",
 
@@ -184,7 +184,7 @@ def webhook():
 
             "BASTA NIKO!!! NON UNA PAROLA DI PIÙ!!!",
 
-            "NIKO!!! ZITTO E CALMATI!!! 🤌"
+            "NIKO!!! ZITTO E CALMATI!!!"
 
         ]
 
