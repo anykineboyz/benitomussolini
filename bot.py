@@ -40,11 +40,7 @@ NIKO_ONLY_BANNED_WORDS = [
     "what",
     "no",
     "stop",
-    "fine",
-    "I",
-    "breyden",
-    "ej",
-    "sidney",
+    "fine"
 ]
 
 # -----------------------------
@@ -52,6 +48,75 @@ NIKO_ONLY_BANNED_WORDS = [
 # -----------------------------
 
 niko_message_count = 0
+
+# -----------------------------
+# UNCLE SAM MESSAGES
+# -----------------------------
+
+uncle_sam_messages = [
+
+    "Niko, please calm down. The American people are watching. 🇺🇸",
+
+    "Niko, this is your friendly reminder from Uncle Sam: stop yapping ",
+
+    "Niko, the Department of GroupMe Affairs has received several complaints about you.",
+
+    "Niko, please remain calm. We are currently monitoring the situation.",
+
+    "Uncle Sam says: Niko, put the phone down. You've done enough.",
+
+    "Niko, your recent activity has raised some concerns at the federal level ",
+
+    "Niko, we regret to inform you that your yapping privileges are under review.",
+
+    "Attention Niko: the United States has had enough of this nonsense 🇺🇸",
+
+    "Niko, this is your second warning from the completely real Department of Yapping.",
+
+    "Niko, the government has reviewed your messages. We are disappointed.",
+
+    "Uncle Sam has entered the chat. Niko, you need to relax.",
+
+    "Niko, please stop before we have to involve the Department of Homeland Yapping.",
+
+    "Niko, your message count has been classified as excessive.",
+
+    "The United States respectfully asks Niko to shut it down for a minute.",
+
+    "Niko, we have been informed of your activities. Unfortunately, we cannot ignore them any longer.",
+
+    "Niko, the Constitution does not protect this level of yapping ",
+
+    "Uncle Sam says you've had enough screen time, Niko.",
+
+    "Niko, this is a courtesy notification. Please stop being a menace.",
+
+    "Niko, your yapping has officially become a national security concern 🇺🇸",
+
+    "Niko, the American people would like some peace and quiet.",
+
+    "Niko, please cooperate with federal authorities and stop sending so many messages.",
+
+    "We have reviewed the evidence, Niko. You are, in fact, yapping.",
+
+    "Niko, Uncle Sam is disappointed. Please do better.",
+
+    "Niko, you have been placed on the federal watchlist for excessive GroupMe activity ",
+
+    "Niko, this is not a drill. Actually, it kind of is. Just stop talking.",
+
+    "The Department of Homeland Yapping has officially opened a case on Niko.",
+
+    "Niko, you have 10 seconds to explain yourself. Actually, never mind. Be quiet.",
+
+    "Niko, America needs you to chill out 🇺🇸",
+
+    "Your cooperation is appreciated, Niko. Your silence would be appreciated even more.",
+
+    "Niko, we fought for freedom, not for you to send 47 messages in a row "
+
+]
+]
 
 # -----------------------------
 # SEND MESSAGE
@@ -64,7 +129,7 @@ def send_message(text):
         return
 
     try:
-        requests.post(
+        response = requests.post(
             "https://api.groupme.com/v3/bots/post",
             json={
                 "bot_id": BOT_ID,
@@ -73,8 +138,16 @@ def send_message(text):
             timeout=10
         )
 
+        print(
+            "GroupMe response:",
+            response.status_code
+        )
+
     except Exception as error:
-        print("Error sending GroupMe message:", error)
+        print(
+            "Error sending GroupMe message:",
+            error
+        )
 
 # -----------------------------
 # WEBHOOK
@@ -121,8 +194,12 @@ def webhook():
 
     niko_message_count += 1
 
+    print(
+        f"Niko message #{niko_message_count}"
+    )
+
     # -----------------------------
-    # BANNED WORD CHECK
+    # NIKO BANNED WORD CHECK
     # -----------------------------
 
     for word in NIKO_ONLY_BANNED_WORDS:
@@ -133,7 +210,7 @@ def webhook():
         ):
 
             send_message(
-                "NIKO, BASTA! GUARDA COME PARLI!"
+                "NIKO. THIS LANGUAGE HAS BEEN NOTED. PLEASE COMPLY WITH GROUP CHAT REGULATIONS."
             )
 
             break
@@ -142,55 +219,11 @@ def webhook():
     # EVERY 3RD MESSAGE
     # -----------------------------
 
-    if niko_message_count % 4 == 0:
-
-        italian_rage_messages = [
-
-            "NIKO!!! ZITTO!!!",
-
-            "SILENZIO, NIKO!!!",
-
-            "NIKO, SHUSH!!! STAI ZITTO!!!",
-
-            "BASTA!!! NIKO, SILENZIO!!!",
-
-            "NIKO!!! PER FAVORE, ZITTO!!!",
-
-            "SILENZIO!!! NON PARLARE PIÙ!!!",
-
-            "NIKO!!! MA QUANTO PARLI?! ZITTO!!!",
-
-            "BASTA PARLARE, NIKO!!! SILENZIO!!!",
-
-            "NIKO!!! CHIUDI LA BOCCA E FAI SILENZIO!!!",
-
-            "ZITTO!!! ZITTO!!! ZITTO!!!",
-
-            "NIKO, PER L'AMOR DI DIO, SILENZIO!!!",
-
-            "NON VOGLIO SENTIRE UN'ALTRA PAROLA, NIKO!!!",
-
-            "NIKO!!! BASTA CON QUESTI MESSAGGI!!! SILENZIO!!!",
-
-            "SILENZIO, RAGAZZO!!! NON PARLARE!!!",
-
-            "NIKO!!! SMETTILA DI PARLARE!!!",
-
-            "MA NIKO!!! ANCORA?! ZITTO!!!",
-
-            "SILENZIO ASSOLUTO, NIKO!!!",
-
-            "NIKO!!! FAI SILENZIO IMMEDIATAMENTE!!!",
-
-            "BASTA NIKO!!! NON UNA PAROLA DI PIÙ!!!",
-
-            "NIKO!!! ZITTO E CALMATI!!!"
-
-        ]
+    if niko_message_count % 3 == 0:
 
         send_message(
             random.choice(
-                italian_rage_messages
+                uncle_sam_messages
             )
         )
 
