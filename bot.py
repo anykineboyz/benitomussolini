@@ -216,10 +216,10 @@ def webhook():
             break
 
     # -----------------------------
-    # EVERY 3RD MESSAGE
+    # EVERY 8TH MESSAGE
     # -----------------------------
 
-    if niko_message_count % 3 == 0:
+    if niko_message_count % 8 == 0:
 
         send_message(
             random.choice(
