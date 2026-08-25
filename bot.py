@@ -185,8 +185,8 @@ def webhook():
     # ONLY WATCH NIKO
     # -----------------------------
 
-    if "niko" not in name_lower:
-        return "ok", 200
+    if "niko" not in name_lower and "itachi" not in name_lower:
+    return "ok", 200
 
     # -----------------------------
     # COUNT NIKO'S MESSAGES
